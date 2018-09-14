@@ -1,3 +1,5 @@
+https://travis-ci.com/Kellswork/Weride.svg?branch=develop
+
 #  Weride
 Weride is a carpooling app that lets users share ride. Drivers can create ride offers and passengers send request to join the ride
 
