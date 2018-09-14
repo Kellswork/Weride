@@ -42,12 +42,13 @@ describe('Get rides', () => {
       });
   });
 
-  it('should return an error message id ride does not found', (done) => {
+  it('should return an error message ride not found', (done) => {
     api.get('/api/v1/rides/ride')
       .set('accept', 'application.json')
       .expect(404)
       .end((err, res) => {
         expect(res.status).to.equal(404);
+        expect(res.error.text).to.equal('ride not Found');
         done();
       });
   });

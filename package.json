@@ -1,0 +1,31 @@
+{
+  "name": "weride",
+  "version": "1.0.0",
+  "description": "Weride is a carpooling app that lets users share rides to different destinations",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node --preset=env",
+    "start": "nodemon --exec npm run babel-node -- src/index.js",
+    "build": "babel src -d dist",
+    "test": "mocha --require babel-core/register ./specs/ride_test.spec.js"
+  },
+  "author": "Kelechi Ogbonna",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "coffeescript": "^2.3.1",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "joi": "^13.6.0",
+    "supertest": "^3.3.0"
+  }
+}
