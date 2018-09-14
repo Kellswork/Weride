@@ -48,7 +48,7 @@ describe('Get rides', () => {
       .expect(404)
       .end((err, res) => {
         expect(res.status).to.equal(404);
-        expect(res.error.text).to.equal('ride not Found');
+        expect(res.error.text).to.equal('Ride not found');
         done();
       });
   });
