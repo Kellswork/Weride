@@ -1,7 +1,7 @@
-#Weride
+#  Weride
 Weride is a carpooling app that lets users share ride. Drivers can create ride offers and passengers send request to join the ride
 
-###Application Features 
+### Application Features 
 - Users can create an account and login.
 - Users can add ride offers.
 - Users can view all ride offers.
@@ -9,9 +9,9 @@ Weride is a carpooling app that lets users share ride. Drivers can create ride o
 - Users can view the requests to the ride offer they created.
 - Users can either accept or reject a ride request.
 
-#Technologies
+# Technologies
 
-###Backend
+### Backend
 The backend was implemented using:
 
 - [Node](https://nodejs.org/en/) Node Js is a Javascript runtime built on Chrome's V8 JavaScript engine
