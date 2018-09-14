@@ -7,7 +7,9 @@
     "babel-node": "babel-node --preset=env",
     "start": "nodemon --exec npm run babel-node -- src/index.js",
     "build": "babel src -d dist",
-    "test": "mocha --require babel-core/register ./specs/ride_test.spec.js"
+    "test": " nyc --reporter=html --reporter=text mocha --require babel-core/register ./specs/ride_test.spec.js --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+
   },
   "author": "Kelechi Ogbonna",
   "license": "ISC",
@@ -23,7 +25,8 @@
     "eslint-plugin-import": "^2.14.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "mocha-lcov-reporter": "^1.3.0"
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^13.0.1"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
