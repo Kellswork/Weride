@@ -2,28 +2,20 @@ import express from 'express';
 
 import rides from '../models/ride';
 
-import validateInput from '../validator/ride';
-
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.status(200).json(rides);
-});
+router.get('/', (req, res) => res.status(200).send(rides));
 
 router.get('/:rideId', (req, res) => {
   const ride = rides.find(c => c.id === parseInt(req.params.rideId, 10));
   if (!ride) {
-    res.status(404).send('Ride not found');
+    return res.status(404).send('Ride not found');
   }
-  res.status(200).json(ride);
+  return res.status(200).send(ride);
 });
 
 router.post('/', (req, res) => {
-  const { error } = validateInput(req.body);
-
-  if (error) res.status(400).send(error.details[0].message);
-
   const ride = {
     id: rides.length + 1,
     name: req.body.name,
@@ -33,7 +25,10 @@ router.post('/', (req, res) => {
     date: req.body.date,
   };
   rides.push(ride);
-  res.status(200).json(rides);
+  return res.status(201).send({
+    message: 'Ride Created',
+    createdRide: ride,
+  });
 });
 
 router.post('/:rideId/requests', (req, res) => {
@@ -42,7 +37,7 @@ router.post('/:rideId/requests', (req, res) => {
     rideId: ride,
     name: req.body.name,
   };
-  res.status(200).json({
+  res.status(201).json({
     Details: ride,
     message: `${requests.name} has requested to join your ride`,
   });
